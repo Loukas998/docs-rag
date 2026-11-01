@@ -1,0 +1,29 @@
+[project]
+name = "docs-rag"
+version = "0.1.0"
+description = "RAG with hybrid search over the FastAPI docs, measured: a hand-written golden set scores every retrieval change."
+readme = "README.md"
+authors = [
+    { name = "Loukas998", email = "majdlouka4@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "ollama>=0.6.3",
+    "pydantic>=2.14.1",
+    "pyyaml>=6.0.3",
+    "rank-bm25>=0.2.2",
+]
+
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

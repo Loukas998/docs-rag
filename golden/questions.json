@@ -1,0 +1,57 @@
+{
+    "version": 1,
+    "corpus": "fastapi-0.162.0",
+    "questions": [
+      {
+        "id": "q01",
+        "question": "How do I stop a search parameter from being longer than 50 characters?",
+        "answer": "Wrap its type in Annotated and put Query(max_length=50) inside.",
+        "kind": "lookup",
+        "evidence": [
+          {
+            "doc": "tutorial/query-params-str-validations.md",
+            "quote": "add Query inside of Annotated, and set the parameter max_length to 50"
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "q02",
+        "question": "How do I send my app's traces to my own monitoring collector?",
+        "answer": "Install fastapi[standard] and set FASTAPI_OTEL_AUTO_CONFIGURE=true, OTEL_SERVICE_NAME and OTEL_EXPORTER_OTLP_ENDPOINT.",
+        "kind": "lookup",
+        "evidence": [
+          {
+            "doc": "advanced/opentelemetry.md",
+            "quote": "FASTAPI_OTEL_AUTO_CONFIGURE=true enables FastAPI's automatic exporter setup."
+          }
+        ],
+        "notes": "Added in 0.142.0 (Sept 2026), after qwen3 was trained: the model alone cannot know it."
+      },
+      {
+        "id": "q03",
+        "question": "In my tests, how do I call an endpoint but swap its database dependency for a fake one?",
+        "answer": "Call it through TestClient(app), and put the fake in app.dependency_overrides with the real dependency as the key.",
+        "kind": "multi-hop",
+        "evidence": [
+          {
+            "doc": "tutorial/testing.md",
+            "quote": "Create a TestClient by passing your FastAPI application to it."
+          },
+          {
+            "doc": "advanced/testing-dependencies.md",
+            "quote": "To override a dependency for testing, you put as a key the original dependency (a function), and as the value, your dependency override (another function)."
+          }
+        ],
+        "notes": "Two pages: how to call the app in a test, and how to swap a dependency."
+      },
+      {
+        "id": "q04",
+        "question": "How do I limit each client to 100 requests per minute?",
+        "answer": "The docs do not cover rate limiting.",
+        "kind": "no-answer",
+        "evidence": [],
+        "notes": "Searched the corpus for 'rate limit' and 'throttl': nothing."
+      }
+    ]
+  }

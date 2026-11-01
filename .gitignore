@@ -1,0 +1,13 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# downloaded by `corpus fetch`: pinned by version and SHA-256, so it does not need to be in git
+corpus/
