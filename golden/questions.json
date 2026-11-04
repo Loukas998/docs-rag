@@ -52,6 +52,164 @@
         "kind": "no-answer",
         "evidence": [],
         "notes": "Searched the corpus for 'rate limit' and 'throttl': nothing."
+      },
+      {
+        "id": "q05",
+        "question": "How do I stream server-sent events?",
+        "answer": "Use yield in the path operation and set response_class=EventSourceResponse.",
+        "kind": "lookup",
+        "evidence": [
+          {
+            "doc": "tutorial/server-sent-events.md",
+            "quote": "To stream SSE with FastAPI, use yield in your path operation function and set response_class=EventSourceResponse."
+          }
+        ],
+        "notes": "Added in 0.135.0 (March 2026), after qwen3 was trained: the model alone cannot know it."
+      },
+      {
+        "id": "q06",
+        "question": "How do I serve my built frontend?",
+        "answer": "Call app.frontend() with the build directory, for example dist.",
+        "kind": "lookup",
+        "evidence": [
+          {
+            "doc": "tutorial/frontend.md",
+            "quote": "You can serve static frontend apps with app.frontend() (or router.frontend())."
+          }
+        ],
+        "notes": "Added in 0.138.0 (June 2026), after qwen3 was trained: the model alone cannot know it."
+      },
+      {
+        "id": "q07",
+        "question": "How do I handle an unchecked checkbox?",
+        "answer": "Declare a boolean form field with a default of False. An omitted checkbox arrives as False.",
+        "kind": "lookup",
+        "evidence": [
+          {
+            "doc": "tutorial/request-forms.md",
+            "quote": "Declare a boolean form parameter with a default of False to receive False when unchecked"
+          }
+        ],
+        "notes": "Added in 0.147.0 (Oct 2026), after qwen3 was trained: the model alone cannot know it."
+      },
+      {
+        "id": "q08",
+        "question": "Why reject JSON with no content type?",
+        "answer": "FastAPI requires a Content-Type such as application/json before it parses a body as JSON.",
+        "kind": "lookup",
+        "evidence": [
+          {
+            "doc": "advanced/strict-content-type.md",
+            "quote": "JSON requests must include a valid Content-Type header (e.g. application/json) in order for the body to be parsed as JSON."
+          }
+        ],
+        "notes": "Added in 0.132.0 (Feb 2026), after qwen3 was trained: the model alone cannot know it."
+      },
+      {
+        "id": "q09",
+        "question": "How do I deploy to FastAPI Cloud?",
+        "answer": "Run uv run fastapi deploy. The CLI deploys the app and opens a browser if you are not logged in.",
+        "kind": "lookup",
+        "evidence": [
+          {
+            "doc": "deployment/fastapicloud.md",
+            "quote": "You can deploy your FastAPI app to FastAPI Cloud with just one command."
+          },
+          {
+            "doc": "deployment/fastapicloud.md",
+            "quote": "uv run fastapi deploy"
+          }
+        ],
+        "notes": "fastapi deploy added in 0.116.0 (July 2025). The model alone cannot know it."
+      },
+      {
+        "id": "q10",
+        "question": "How do I turn off the docs?",
+        "answer": "Set the environment variable OPENAPI_URL to an empty string.",
+        "kind": "lookup",
+        "evidence": [
+          {
+            "doc": "how-to/conditional-openapi.md",
+            "quote": "you could disable OpenAPI (including the UI docs) by setting the environment variable OPENAPI_URL to the empty string"
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "q11",
+        "question": "How do I run code after responding?",
+        "answer": "Take a BackgroundTasks parameter and pass the function to add_task().",
+        "kind": "lookup",
+        "evidence": [
+          {
+            "doc": "tutorial/background-tasks.md",
+            "quote": "pass your task function to the background tasks object with the method .add_task()"
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "q12",
+        "question": "How do I allow requests from another site?",
+        "answer": "Add CORSMiddleware and put the other site in allow_origins.",
+        "kind": "lookup",
+        "evidence": [
+          {
+            "doc": "tutorial/cors.md",
+            "quote": "You can configure it in your FastAPI application using the CORSMiddleware."
+          }
+        ],
+        "notes": ""
+      },
+      {
+        "id": "q13",
+        "question": "How do I run startup code in tests?",
+        "answer": "Put the startup code in a lifespan function, and open TestClient inside a with block so lifespan runs.",
+        "kind": "multi-hop",
+        "evidence": [
+          {
+            "doc": "advanced/events.md",
+            "quote": "You can define this startup and shutdown logic using the lifespan parameter of the FastAPI app"
+          },
+          {
+            "doc": "advanced/testing-events.md",
+            "quote": "When you need lifespan to run in your tests, you can use the TestClient with a with statement"
+          }
+        ],
+        "notes": "Two pages: how to declare lifespan, and how to make TestClient run it."
+      },
+      {
+        "id": "q14",
+        "question": "How do I write and test a websocket?",
+        "answer": "Declare a websocket route that awaits and sends messages, then connect to it with TestClient inside a with block.",
+        "kind": "multi-hop",
+        "evidence": [
+          {
+            "doc": "advanced/websockets.md",
+            "quote": "In your WebSocket route you can await for messages and send messages."
+          },
+          {
+            "doc": "advanced/testing-websockets.md",
+            "quote": "You can use the same TestClient to test WebSockets."
+          }
+        ],
+        "notes": "Two pages: how to write the route, and how to connect to it in a test."
+      },
+      {
+        "id": "q15",
+        "question": "How do I send metrics to Prometheus?",
+        "answer": "The docs do not cover Prometheus.",
+        "kind": "no-answer",
+        "evidence": [],
+        "notes": "Searched the docs for 'prometheus': nothing, including release-notes.md."
+      },
+      {
+        "id": "q16",
+        "question": "How do I add a refresh token?",
+        "answer": "The docs do not cover refresh tokens.",
+        "kind": "no-answer",
+        "evidence": [],
+        "notes": "Searched the docs for 'refresh token' and 'refresh_token': nothing. 'refresh' only means a SQL session refresh or a type-hints refresher."
       }
     ]
   }
